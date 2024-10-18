@@ -14,8 +14,9 @@ item firmware_flash ${space} DOS Firmware Flasher
 item min_debian_soe ${space} Minimum Debian SOE
 choose custom_menu_selection || goto custom_exit
 echo ${cls}
-iseq ${custom_menu_selection} firmare_flash && goto firmware_flash
-iseq ${custom_menu_selection} min_debian_soe && goto min_debian_soe
+iseq ${custom_menu_selection} firmare_flash && goto firmware_flash ||
+iseq ${custom_menu_selection} min_debian_soe && goto min_debian_soe ||
+goto custom_exit
 goto custom_install || goto custom_exit
 
 :firmware_flash
