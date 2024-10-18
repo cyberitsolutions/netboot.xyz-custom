@@ -10,3 +10,23 @@ goto custom_exit
 
 :custom_exit
 exit 0
+
+:firmware_flash_menu
+set os firmware flash
+menu ${os}
+item --gap ${os}
+item firmware_flash ${space} ${os} 1.3 Full Installer
+choose firmware_flash_version || goto firmware_flash_exit
+echo ${cls}
+goto firmware_flash_install || goto firmware_flash_exit
+
+:firmware_flash_install
+imgfree
+kernel ${memdisk}
+#initrd ${freedos_mirror}/${freedos_base_dir}/${freedos_version}.zip
+initrd https://minio.dane.mattcen.com/test/FD13LITE+H110i%20PrsonPC%20BIOS.zip_2024-04-05.img
+boot
+
+:firmware_flash_exit
+clear menu
+exit 0
