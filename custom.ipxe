@@ -16,7 +16,8 @@ goto firmware_flash_install || goto firmware_flash_exit
 imgfree
 kernel ${memdisk}
 #initrd ${freedos_mirror}/${freedos_base_dir}/${freedos_version}.zip
-initrd https://minio.dane.mattcen.com/test/FD13LITE+H110i%20PrsonPC%20BIOS.zip_2024-04-05.img
+#initrd https://minio.dane.mattcen.com/test/FD13LITE+H110i%20PrsonPC%20BIOS.zip_2024-04-05.img
+initrd https://minio.dane.mattcen.com/test/FD12LITE+foo.zip_2022-01-17.img
 boot
 
 :firmware_flash_exit
